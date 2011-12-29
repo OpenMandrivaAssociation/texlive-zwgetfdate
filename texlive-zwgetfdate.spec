@@ -17,8 +17,6 @@ BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
 Requires(post):	texlive-kpathsea
-Conflicts:	texlive-texmf <= 20110705-3
-Conflicts:	texlive-doc <= 20110705-3
 
 %description
 The package enables to fetch dates of used packages and files
@@ -26,20 +24,12 @@ and provide such information in macros. It is useful for
 automatic obtaining the date of a package being documented,
 mainly if you do not use doc/docstrip.
 
-%pre
-    %_texmf_mktexlsr_pre
-
 %post
-    %_texmf_mktexlsr_post
-
-%preun
-    if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_pre
-    fi
+    %{_sbindir}/texlive.post
 
 %postun
     if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_post
+	%{_sbindir}/texlive.post
     fi
 
 #-----------------------------------------------------------------------
@@ -49,7 +39,6 @@ mainly if you do not use doc/docstrip.
 %doc %{_texmfdistdir}/doc/latex/zwgetfdate/README
 %doc %{_texmfdistdir}/doc/latex/zwgetfdate/zwgetfdate.pdf
 %doc %{_texmfdistdir}/doc/latex/zwgetfdate/zwgetfdate.tex
-%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -60,5 +49,3 @@ mainly if you do not use doc/docstrip.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc %{buildroot}%{_texmfdistdir}
-mkdir -p %{buildroot}%{_tlpkgobjdir}
-cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
