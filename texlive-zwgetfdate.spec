@@ -49,3 +49,16 @@ mainly if you do not use doc/docstrip.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc %{buildroot}%{_texmfdistdir}
+
+
+%changelog
+* Thu Jan 05 2012 Paulo Andrade <pcpa@mandriva.com.br> 20080824-2
++ Revision: 757785
+- Rebuild to reduce used resources
+
+* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 20080824-1
++ Revision: 719976
+- texlive-zwgetfdate
+- texlive-zwgetfdate
+- texlive-zwgetfdate
+
