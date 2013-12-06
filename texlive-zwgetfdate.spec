@@ -6,7 +6,7 @@
 # catalog-version undef
 Name:		texlive-zwgetfdate
 Version:	20080824
-Release:	3
+Release:	4
 Summary:	Get package or file date
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/zwgetfdate
