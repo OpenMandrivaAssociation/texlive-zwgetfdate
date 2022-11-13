@@ -1,18 +1,12 @@
-# revision 15878
-# category Package
-# catalog-ctan /macros/latex/contrib/zwgetfdate
-# catalog-date 2008-08-24 14:29:08 +0200
-# catalog-license lppl1.3
-# catalog-version undef
 Name:		texlive-zwgetfdate
-Version:	20190228
+Version:	15878
 Release:	1
 Summary:	Get package or file date
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/zwgetfdate
 License:	LPPL1.3
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/zwgetfdate.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/zwgetfdate.doc.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/zwgetfdate.r%{version}.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/zwgetfdate.doc.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -25,12 +19,12 @@ automatic obtaining the date of a package being documented,
 mainly if you do not use doc/docstrip.
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -42,23 +36,10 @@ mainly if you do not use doc/docstrip.
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1
+%autosetup -p1 -c -a1
 
 %build
 
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc %{buildroot}%{_texmfdistdir}
-
-
-%changelog
-* Thu Jan 05 2012 Paulo Andrade <pcpa@mandriva.com.br> 20080824-2
-+ Revision: 757785
-- Rebuild to reduce used resources
-
-* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 20080824-1
-+ Revision: 719976
-- texlive-zwgetfdate
-- texlive-zwgetfdate
-- texlive-zwgetfdate
-
