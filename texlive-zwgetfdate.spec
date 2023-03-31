@@ -1,6 +1,6 @@
 Name:		texlive-zwgetfdate
 Version:	15878
-Release:	1
+Release:	2
 Summary:	Get package or file date
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/zwgetfdate
