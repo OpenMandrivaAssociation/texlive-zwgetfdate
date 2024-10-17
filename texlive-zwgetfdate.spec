@@ -3,7 +3,7 @@ Version:	15878
 Release:	2
 Summary:	Get package or file date
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/zwgetfdate
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/zwgetfdate
 License:	LPPL1.3
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/zwgetfdate.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/zwgetfdate.doc.r%{version}.tar.xz
