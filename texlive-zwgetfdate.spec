@@ -1,45 +1,22 @@
-Name:		texlive-zwgetfdate
-Version:	15878
-Release:	2
+%global tl_name zwgetfdate
+%global tl_revision 79618
+
+Name:		texlive-%{tl_name}
+Version:	%{tl_revision}
+Release:	1
 Summary:	Get package or file date
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/zwgetfdate
-License:	LPPL1.3
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/zwgetfdate.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/zwgetfdate.doc.r%{version}.tar.xz
+License:	lppl1.3
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/zwgetfdate.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/zwgetfdate.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-The package enables to fetch dates of used packages and files
-and provide such information in macros. It is useful for
-automatic obtaining the date of a package being documented,
-mainly if you do not use doc/docstrip.
+The package can fetch the date declaration of packages and files used by
+a document, and then provide the information in macros. The facilities
+provide a means of obtaining the date of a package being documented;
+this is mainly of use when doc/docstrip.
 
-%post
-%{_sbindir}/texlive.post
-
-%postun
-if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-fi
-
-#-----------------------------------------------------------------------
-%files
-%{_texmfdistdir}/tex/latex/zwgetfdate/zwgetfdate.sty
-%doc %{_texmfdistdir}/doc/latex/zwgetfdate/License.txt
-%doc %{_texmfdistdir}/doc/latex/zwgetfdate/README
-%doc %{_texmfdistdir}/doc/latex/zwgetfdate/zwgetfdate.pdf
-%doc %{_texmfdistdir}/doc/latex/zwgetfdate/zwgetfdate.tex
-
-#-----------------------------------------------------------------------
-%prep
-%autosetup -p1 -c -a1
-
-%build
-
-%install
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -fpar tex doc %{buildroot}%{_texmfdistdir}
